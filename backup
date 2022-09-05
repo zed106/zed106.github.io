@@ -1,0 +1,11 @@
+## How to use addr2line
+
+```
+infomation in /var/log/message:
+Sep  5 14:58:59 VM_110_99_centos kernel: business_3[5235]: segfault at 0 ip 00007f2001931af9 sp 00007f20f3578bd0 error 4 in balancekv_dao[7f20017cd000+927000]
+```
+
+地址为 ip - base:    00007f2001931af9 - 7f20017cd000 = 164AF9
+execute cmd:
+ sudo addr2line -e balancekv_dao +0x164AF9
+/proc/self/cwd/kvstore/kvstore/kvsvr/svr/datadb_bgtask.cpp:805
